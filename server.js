@@ -89,10 +89,10 @@ app.put('/posts/:id', (req, res) => {
 
 BlogPost
 .findByIdAndUpdate(req.params.id, { $ set: updated}, {new: true}).then(updatedPost => res.status(204).end())
-.cathc(err => res.status(500).json({
+.catch(err => res.status(500).json({
 	message: 'Something went wrong'
-}));
-)};
+});
+};
 
 app.delete('/:id', (req, res) => {
 	BlogPost.findByIdAndRemove(req.params.id).then(() => {
@@ -107,37 +107,3 @@ app.use('*', function(req, res){
 
 //close server needs access to a server object, but that only gets created when runServer runs, so we decalre server here and then assing a value to it in run 
 let server;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
